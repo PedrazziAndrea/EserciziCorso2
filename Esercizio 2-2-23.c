@@ -137,10 +137,12 @@ int main()
        else printf("Bravissimo %s, hai fatto %d punti!", auxNome, score);
        
     if(NuovaPartita() == 0)return 0;
-    goto there;  
+     
     
     i = 0;                  //
     j = 0;                 //  Reimpostazione valori di default se riavvia  
     c = 0;                // 
     score = 0;           //
+  
+   goto there;
 }
