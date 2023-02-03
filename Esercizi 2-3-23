@@ -100,11 +100,11 @@ void dividi ()
     	printf ("Inserisci il denominatore:");
           scanf ("%f", &denom);
    
-    }while((Controllonum((char)num , (char)denom)) == 0);
+    }while((Controllonum((char)num , (char)denom)) == 0);   // casto a char per passarli alla funzione
 
     divisione = num/denom;  //(errore di sintassi) %-> è il resto della divisione
  
-        printf ("La divisione tra %d e %d e': %f", (int)num, (int)denom, divisione);
+        printf ("La divisione tra %d e %d e': %2f", (int)num, (int)denom, divisione);  // %2f -> sta per 2 cifre decimali
 }
 
 
