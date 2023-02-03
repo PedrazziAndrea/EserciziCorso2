@@ -16,7 +16,8 @@
 void menu ();
 void moltiplica ();
 void dividi ();
-void ins_string();int ControlloNum(char);
+void ins_string();
+int ControlloNum(char);
 
 int main () 
 
