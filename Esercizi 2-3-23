@@ -11,6 +11,12 @@
  *                                                                           *
 *******************************************************************************/
 
+/*
+*	Questo programma è una rudimentale calcolatrice
+*	che permett tramite linea di comando di eseguire
+*	operazioni basiche
+*/
+
 #include <stdio.h>
 
 void menu ();
@@ -29,7 +35,7 @@ int main ()
 	
 	for( ; ; )     // ciclo infinito (gameloop)
 	{
-    	scanf (" %c", &scelta); //(correzione) scanf acccetta un carattere
+    	scanf (" %c", &scelta); //(errore di sintassi) scanf acccetta un carattere
     
         controllo = 0;   // reset parametri di default a ogni ciclo
     
@@ -65,13 +71,13 @@ void menu ()
 
 void moltiplica ()
 {
-	int fatt1, fatt2 = 0;        //(correzione) dichiaro variabili come int
+	int fatt1, fatt2 = 0;        //(errore logico) dichiaro variabili come int
 	int prodotto = 0;    // dichiaro prima la variabile 
 	
 	do 
 	{
     	printf ("Inserisci i due numeri da moltiplicare:");
-    	  scanf ("%d", &fatt1);           //(correzione) scanf accetta un int
+    	  scanf ("%d", &fatt1);           //(errore si sintassi) scanf accetta un int
     	    scanf ("%d", &fatt2);
     	    
 	}while (ControlloNum((char)fatt1, (char)fatt2) == 0);
@@ -84,7 +90,7 @@ void moltiplica ()
 
 void dividi ()
 {
-    float  num, denom = 0;  // rendo float almeno ho la parte decimale
+    float  num, denom = 0;  //(errore logico) rendo float almeno ho la parte decimale
     float divisione =0;  // dichiaro prima la variabile
     
     do
@@ -96,7 +102,7 @@ void dividi ()
    
     }while((Controllonum((char)num , (char)denom)) == 0);
 
-    divisione = num/denom;  //(correzione) %-> è il resto della divisione
+    divisione = num/denom;  //(errore di sintassi) %-> è il resto della divisione
  
         printf ("La divisione tra %d e %d e': %f", (int)num, (int)denom, divisione);
 }
@@ -105,16 +111,32 @@ void dividi ()
 void ins_string () 
 {
 	char stringa[30];
+	int controllo = 0;
 	
-	do
+	char auxChar;
+	int i = 0;
+	
+	printf ("Inserisci la stringa:");
+	
+	for (; ;)
 	{
-        printf ("Inserisci la stringa:");
+        
             scanf (" %s", stringa);     /*tolgo & perchè la var.stringa punta
-                                          di default al primo indirizzo dell' array*/
+                                         di default al primo indirizzo dell' array*/
+	while(auxChar != '\0')
+	{
+	  auxChar = stringa[i];
+	  i++;
+	}
+	
+	if(i < 30)break;
+		else printf("Massimo 30 caratteri!");
+	}
 }
 
-int ControlloNum (char input1 ,char input2) //controllo per vedere se è un numero
+int ControlloNum (char input1 ,char input2) //controllo esterno per vedere se è un numero
 {
    if(isdigit(input1) != 0 || isdigit(input2) != 0){printf("Inserisci un numero!")return 0;}
         else return 1;
 }
+
