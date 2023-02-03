@@ -16,7 +16,7 @@
 void menu ();
 void moltiplica ();
 void dividi ();
-void ins_string();
+void ins_string();int ControlloNum(char);
 
 int main () 
 
@@ -64,13 +64,17 @@ void menu ()
 
 void moltiplica ()
 {
-	int  fatt1, fatt2 = 0;        //(correzione) dichiaro variabili come int
+	int fatt1, fatt2 = 0;        //(correzione) dichiaro variabili come int
 	int prodotto = 0;    // dichiaro prima la variabile 
 	
+	do 
+	{
     	printf ("Inserisci i due numeri da moltiplicare:");
     	  scanf ("%d", &fatt1);           //(correzione) scanf accetta un int
     	    scanf ("%d", &fatt2);
-
+    	    
+	}while (ControlloNum((char)fatt1, (char)fatt2) == 0);
+	
 	prodotto = fatt1 * fatt2;
 
     	printf ("Il prodotto tra %d e %d e': %d", fatt1, fatt2, prodotto);
@@ -82,10 +86,14 @@ void dividi ()
     float  num, denom = 0;  // rendo float almeno ho la parte decimale
     float divisione =0;  // dichiaro prima la variabile
     
+    do
+    {
         printf ("Inserisci il numeratore:");
           scanf ("%f", &num);
-    	printf ("Inserisci il denumeratore:");
+    	printf ("Inserisci il denominatore:");
           scanf ("%f", &denom);
+   
+    }while((Controllonum((char)num , (char)denom)) == 0);
 
     divisione = num/denom;  //(correzione) %-> è il resto della divisione
  
@@ -95,9 +103,17 @@ void dividi ()
 
 void ins_string () 
 {
-	char stringa[10];
+	char stringa[30];
 	
+	do
+	{
         printf ("Inserisci la stringa:");
             scanf (" %s", stringa);     /*tolgo & perchè la var.stringa punta
                                           di default al primo indirizzo dell' array*/
+}
+
+int ControlloNum (char input1 ,char input2) //controllo per vedere se è un numero
+{
+   if(isdigit(input1) != 0 || isdigit(input2) != 0){printf("Inserisci un numero!")return 0;}
+        else return 1;
 }
