@@ -134,7 +134,7 @@ void ins_string ()
 	}
 }
 
-int ControlloNum (char input1 ,char input2) //controllo esterno per vedere se è un numero
+int ControlloNum (char input1 ,char input2) //controllo esterno per vedere se è un numero (char come input la rende applicabile a vari contesti)
 {
    if(isdigit(input1) != 0 || isdigit(input2) != 0){printf("Inserisci un numero!")return 0;}
         else return 1;
