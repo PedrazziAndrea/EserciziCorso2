@@ -1,0 +1,103 @@
+/******************************************************************************
+ *                                                                           *
+ *              ████████████████████████████████████████                     *
+ *              █▄─▄▄─█▄─▄▄─█▄─▄█─▄▄▄─█─▄▄─█▄─▄▄▀█▄─▄▄─█                     *
+ *              ██─▄█▀██─▄▄▄██─██─███▀█─██─██─██─██─▄█▀█                     *
+ *              ▀▄▄▄▄▄▀▄▄▄▀▀▀▄▄▄▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▄▀▀▄▄▄▄▄▀                     *
+ *                                                                           *     
+ *                 ESERCIZIO FINALE SETTIMANA 2 EPICODE                      *
+ *                                                                           *
+ *                              2-3-2023                                     *
+ *                                                                           *
+*******************************************************************************/
+
+#include <stdio.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+int main () 
+
+{
+	char scelta = {'\0'};
+	int controllo = 0;
+	
+	menu ();
+	
+	for( ; ; )     // ciclo infinito (gameloop)
+	{
+    	scanf (" %c", &scelta); //(correzione) scanf acccetta un carattere
+    
+        controllo = 0;   // reset parametri di default a ogni ciclo
+    
+    	switch (scelta)
+    	{
+    		case 'A':
+    		        moltiplica();
+    		        break;
+    		case 'B':
+                    dividi();
+                    break;
+    		case 'C':
+                    ins_string();
+                    break;
+            default : 
+                    printf("Carattere sbagliato, riprova.");
+                    controllo = 1;               // segnalazione errore al controllo
+                    break;
+    	};
+    	
+    	if(controllo == 0)break;  // controllo carattere corretto
+    }
+return 0;
+}
+
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	    printf ("Come posso aiutarti?\n");
+	        printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");
+}
+
+
+void moltiplica ()
+{
+	int  fatt1, fatt2 = 0;        //(correzione) dichiaro variabili come int
+	int prodotto = 0;    // dichiaro prima la variabile 
+	
+    	printf ("Inserisci i due numeri da moltiplicare:");
+    	  scanf ("%d", &fatt1);           //(correzione) scanf accetta un int
+    	    scanf ("%d", &fatt2);
+
+	prodotto = fatt1 * fatt2;
+
+    	printf ("Il prodotto tra %d e %d e': %d", fatt1, fatt2, prodotto);
+}
+
+
+void dividi ()
+{
+    float  num, denom = 0;  // rendo float almeno ho la parte decimale
+    float divisione =0;  // dichiaro prima la variabile
+    
+        printf ("Inserisci il numeratore:");
+          scanf ("%f", &num);
+    	printf ("Inserisci il denumeratore:");
+          scanf ("%f", &denom);
+
+    divisione = num/denom;  //(correzione) %-> è il resto della divisione
+ 
+        printf ("La divisione tra %d e %d e': %f", (int)num, (int)denom, divisione);
+}
+
+
+void ins_string () 
+{
+	char stringa[10];
+	
+        printf ("Inserisci la stringa:");
+            scanf (" %s", stringa);     /*tolgo & perchè la var.stringa punta
+                                          di default al primo indirizzo dell' array*/
+}
