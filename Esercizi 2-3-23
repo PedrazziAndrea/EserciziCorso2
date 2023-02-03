@@ -113,24 +113,24 @@ void ins_string ()
 	char stringa[30];
 	int controllo = 0;
 	
-	char auxChar;
-	int i = 0;
+	char auxChar;  // carattere ausiliario
+	int i = 0;  // variabile di iterazione
 	
 	printf ("Inserisci la stringa:");
 	
-	for (; ;)
+	for (; ;)  // ciclo infinito 
 	{
         
             scanf (" %s", stringa);     /*tolgo & perchè la var.stringa punta
                                          di default al primo indirizzo dell' array*/
 	while(auxChar != '\0')
 	{
-	  auxChar = stringa[i];
+	  auxChar = stringa[i];    // conteggio caratteri 
 	  i++;
 	}
 	
 	if(i < 30)break;
-		else printf("Massimo 30 caratteri!");
+		else printf("Massimo 30 caratteri!");  // controllo lunghezza stringa
 	}
 }
 
